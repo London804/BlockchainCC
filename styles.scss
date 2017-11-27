@@ -1,0 +1,24 @@
+$gray-4: rgb(209, 217, 221); // #d1d9dd
+$gray-7: rgb(145, 160, 173); // #91a0ad
+$teal: rgb(0, 199, 177); // #00c7b1
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader {
+    height: 5rem;
+    width: 5rem;
+    border: 2px solid $gray-4;
+    border-left-color: $teal;
+    border-radius: 100%;
+    transform: translateZ(0);
+    transition: opacity 218ms ease;
+    animation: loader 1.1s infinite linear;
+}
