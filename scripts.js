@@ -99,11 +99,17 @@ $(function() {
 		$.getJSON(`https://api.fixer.io/latest?base=USD&symbols=USD,${currency}` , function(currencyRatioData) {
 			console.log(`${currency}`);
 			var ratio = currencyRatioData.rates[currency];
+			console.log(ratio);
 
 			$.getJSON('https://api.blockchain.info/price/index-series?base=btc&quote=USD&start=1503145039&scale=7200', function (data) {
-				var mappedData = data.map(function(element) {
-		 		return [element.timestamp*1000, element.price*ratio]; //this gets the currency ratio
-			 	});
+				if (ratio === undefined) {
+					getDataAndShowChart();
+				} else {
+					var mappedData = data.map(function(element) {
+			 			return [element.timestamp*1000, element.price*ratio]; //this gets the currency ratio
+				 	});
+
+				}
 
 			    chart.update({
 			        series: [{
