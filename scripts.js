@@ -4,7 +4,7 @@ $(function() {
 
 
 	function renderChart(mappedData) {
-		chart = Highcharts.chart('container', {
+		chart = Highcharts.stockChart('container', {
 		        chart: {
 		            zoomType: 'x'
 		        },
@@ -19,10 +19,13 @@ $(function() {
 		            type: 'datetime',
 		            // categories: formattedDate
 		        },
-		        yAxis: {
-		            title: {
-		                text: ''
-		            }
+		          yAxis: {
+		            title: 'Price'
+		            
+		        },
+
+		        tooltip: {
+		            split: true
 		        },
 		        legend: {
 		            enabled: false
@@ -56,10 +59,12 @@ $(function() {
 
 		        series: [{
 		            type: 'area',
+		            name: `Bitcoin in USD`,
 		            data: mappedData
-		        }]
-		});// end chart
-	}
+		        },
+		        ]
+		});
+		}
 
 	 function getDataAndShowChart() {
 	 	$('.loader').show();
@@ -68,16 +73,19 @@ $(function() {
 		 		return [element.timestamp*1000, element.price];
 		 	})
 
+		 	// var volumeData = data.map(function(element) {
+		 	// 	return [element.volume24h];
+		 	// })
 
 		 	// console.log('cachedData', cachedData);
-		 	// console.log('mappedData', mappedData);
+		 	// console.log('volume24h', volumeData);
 
 		 	renderChart(mappedData);
 		
 		})
 		 .fail(function() {
 		    console.log( "error" );
-		    $('#container').append( "<h1>Chart Failed to load. Please refresh page.</h1>" );
+		    $('#container').append( "<h1>Chart Failed to load. Please refresh the page.</h1>" );
 		  })
 		.done(function() {
 			console.log( "complete" );
@@ -120,7 +128,7 @@ $(function() {
 		})
 		.fail(function() {
 		    console.log( "error" );
-		    $('#container').append( "<h1>Chart Failed to load. Please refresh page.</h1>" );
+		    $('#container').append( "<h1>Chart Failed to load. Please refresh the page.</h1>" );
 		  })
 		.done(function() {
 			console.log( "complete" );
