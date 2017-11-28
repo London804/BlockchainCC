@@ -2,67 +2,93 @@ $(function() {
 
     var chart;
 
-
 	function renderChart(mappedData) {
 		chart = Highcharts.stockChart('container', {
-		        chart: {
-		            zoomType: 'x'
-		        },
-		        title: {
-		            text: 'Bitcoin Price'
-		        },
-		        subtitle: {
-		            text: document.ontouchstart === undefined ?
-		                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-		        },
-		        xAxis: {
-		            type: 'datetime',
-		            // categories: formattedDate
-		        },
-		          yAxis: {
-		            title: 'Price'
-		            
-		        },
+	        chart: {
+	            zoomType: 'x'
+	        },
+	        title: {
+	            text: 'Bitcoin Price'
+	        },
+	        subtitle: {
+	            text: document.ontouchstart === undefined ?
+	                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+	        },
+	        xAxis: {
+	            type: 'datetime',
+	            // categories: formattedDate
+	        },
+	          yAxis: [{
+	            labels: {
+	                align: 'right',
+	                x: -3
+	            },
+	            title: {
+	                text: 'Price'
+	            },
+	            height: '70%',
+	            lineWidth: 2,
+	            offset: 20,
+	            resize: {
+	                enabled: true
+	            }
+	        }, {
+	            labels: {
+	                align: 'right',
+	                x: -3
+	            },
+	            title: {
+	                text: 'Volume'
+	            },
+	            top: '75%',
+	            height: '25%',
+	            offset: 20,
+	            lineWidth: 2
+	        }],
 
-		        tooltip: {
-		            split: true
-		        },
-		        legend: {
-		            enabled: false
-		        },
-		        plotOptions: {
-		            area: {
-		                fillColor: {
-		                    linearGradient: {
-		                        x1: 0,
-		                        y1: 0,
-		                        x2: 0,
-		                        y2: 1
-		                    },
-		                    stops: [
-		                        [0, Highcharts.getOptions().colors[0]],
-		                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-		                    ]
-		                },
-		                marker: {
-		                    radius: 2
-		                },
-		                lineWidth: 1,
-		                states: {
-		                    hover: {
-		                        lineWidth: 1
-		                    }
-		                },
-		                threshold: null
-		            }
-		        },
+	        tooltip: {
+	            split: true
+	        },
+	        legend: {
+	            enabled: false
+	        },
+	        plotOptions: {
+	            area: {
+	                fillColor: {
+	                    linearGradient: {
+	                        x1: 0,
+	                        y1: 0,
+	                        x2: 0,
+	                        y2: 1
+	                    },
+	                    stops: [
+	                        [0, Highcharts.getOptions().colors[0]],
+	                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+	                    ]
+	                },
+	                marker: {
+	                    radius: 2
+	                },
+	                lineWidth: 1,
+	                states: {
+	                    hover: {
+	                        lineWidth: 1
+	                    }
+	                },
+	                threshold: null
+	            }
+	        },
 
-		        series: [{
-		            type: 'area',
-		            name: `Bitcoin in USD`,
-		            data: mappedData
-		        },
-		        ]
+	        series: [{
+	            type: 'area',
+	            name: `Bitcoin in USD`,
+	            data: mappedData
+	        }, {
+	            type: 'column',
+	            name: 'Volume',
+	            data: mappedData,
+	            yAxis: 1,
+	        }]
 		});
 		}
 
@@ -70,7 +96,7 @@ $(function() {
 	 	$('.loader').show();
 		 $.getJSON('https://api.blockchain.info/price/index-series?base=btc&quote=USD&start=1503145039&scale=7200', function (data) {
 		 	var mappedData = data.map(function(element) {
-		 		return [element.timestamp*1000, element.price];
+		 		return [element.timestamp*1000, element.price, element.volume24h];
 		 	})
 
 		 	// var volumeData = data.map(function(element) {
@@ -101,7 +127,7 @@ $(function() {
 		getPriceRatioAndReRenderChart(dataCurrency);
 	});
 
-	window.getPriceRatioAndReRenderChart = function getPriceRatioAndReRenderChart(currency) {
+	function getPriceRatioAndReRenderChart(currency) {
 		$('.loader').show();
 		// get the price ratio for the one you're interested in
 		$.getJSON(`https://api.fixer.io/latest?base=USD&symbols=USD,${currency}` , function(currencyRatioData) {
@@ -122,6 +148,12 @@ $(function() {
 			            type: 'area',
 			            name: `Bitcoin in ${currency}`,
 			            data: mappedData
+			        },{
+			        	type: 'column',
+			            name: 'Volume',
+			            data: mappedData,
+			            yAxis: 1,
+
 			        }]
 			    });
 			});
