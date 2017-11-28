@@ -1,11 +1,4 @@
-$gray-4: rgb(209, 217, 221); // #d1d9dd
-$gray-7: rgb(145, 160, 173); // #91a0ad
-$teal: rgb(0, 199, 177); // #00c7b1
-
-
-#container {
-    height: 43.75rem;
-}
+@import 'colors';
 
 @keyframes loader {
     0% {
@@ -17,9 +10,17 @@ $teal: rgb(0, 199, 177); // #00c7b1
     }
 }
 
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
 .loader {
-    height: 5rem;
-    width: 5rem;
+    height: 6rem;
+    width: 6rem;
     border: 2px solid $gray-4;
     border-left-color: $teal;
     border-radius: 100%;

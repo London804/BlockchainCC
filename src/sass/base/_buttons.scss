@@ -1,0 +1,104 @@
+@import "colors";
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: $transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all $transition-timing ease;
+    outline: 0;
+    font-family: 'Colfax', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+    &:disabled,
+    &.is-disabled {
+        cursor: not-allowed;
+    }
+
+    .icon-arrow-right {
+        margin-left: 0.125rem;
+    }
+
+    .icon-arrow-left {
+        margin-right: 0.125rem;
+    }
+}
+
+.button--primary,
+.button--secondary {
+    height: 2.25rem;
+    min-width: 5rem;
+    padding: 0 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: $medium;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.button--primary {
+    color: $white;
+    background-color: $gray-10;
+
+    &:hover,
+    &.is-hover {
+        background-color: $orange;
+    }
+
+    &:active,
+    &.is-active {
+        color: $orange;
+        background-color: $white;
+        border: 1px solid $orange;
+    }
+
+    &:disabled,
+    &.is-disabled {
+        color: $white-translucent;
+        background-color: $gray-10-translucent--light;
+    }
+}
+
+.button--secondary {
+    color: $gray-8;
+    background-color: $white;
+    border: 1px solid $gray-7;
+
+    [class*='icon-'] {
+        color: $gray-8;
+    }
+
+    &:hover,
+    &.is-hover {
+        color: $gray-10;
+        border-color: $gray-10;
+
+        [class*='icon-'] {
+            color: $gray-10;
+        }
+    }
+
+    &:active,
+    &.is-active {
+        color: $orange;
+        background-color: $white;
+        border: 1px solid $orange;
+    }
+
+    &:disabled,
+    &.is-disabled {
+        color: $gray-8-translucent;
+        border: 1px solid $gray-7-translucent;
+    }
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+
+    .button + .button {
+        margin-left: 1rem;
+    }
+}

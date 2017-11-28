@@ -1,0 +1,61 @@
+$transition-timing: 0.218s;
+
+// sass-lint:disable no-color-literals
+
+//Colors
+$red: rgb(255, 76, 76); // #ff4c4c
+$orange: rgb(255, 117, 0); // #ff7500
+$yellow: rgb(255, 205, 0); // #ffcd00
+$teal: rgb(0, 199, 177); // #00c7b1
+$blue: rgb(0, 181, 226); // #00b5e2
+$dark-blue: rgb(47, 106, 138); // #2f6a8a
+$green: rgb(31, 187, 166); //#1fbba6
+
+// Gradients
+$blue-gradient:  linear-gradient(to left, rgba($blue, 0.75), $blue);
+$blue-teal-gradient: linear-gradient(to right, $blue, $teal);
+$blue-teal-gradient-vertical: linear-gradient(to bottom, $teal, $blue);
+
+// Ends of the Rainbow
+$white: rgb(255, 255, 255); // #ffffff
+$black: rgb(0, 0, 0); // #000000
+
+// 50 Shades of Gray
+$gray-brand: rgb(48, 50, 55); // #303237
+$gray-10: rgb(43, 49, 58); // #2b313a
+$gray-9: rgb(63, 72, 83); // #3f4853
+$gray-8: rgb(101, 108, 117); // #656c75
+$gray-7: rgb(145, 160, 173); // #91a0ad
+$gray-6: rgb(167, 179, 189); // #a7b3bd
+$gray-5: rgb(199, 207, 213); // #c7cfd5
+$gray-4: rgb(209, 217, 221); // #d1d9dd
+$gray-3: rgb(222, 226, 230); // #dee2e6
+$gray-2: rgb(233, 235, 238); // #e8ebed
+$gray-1: rgb(238, 240, 242); // #eef0f2
+$gray-0: rgb(248, 250, 253); // #f8fafd
+
+// See Thru Colors
+$transparent: rgba(0, 0, 0, 0);
+
+$teal-translucent: rgba(0, 199, 177, 0.3);
+
+$white-translucent: rgba(255, 255, 255, 0.5);
+$white-translucent--mid: rgba(255, 255, 255, 0.7);
+$white-translucent--dark: rgba(255, 255, 255, 0.95);
+
+$black-translucent: rgba(0, 0, 0, 0.6);
+$black-translucent--light: rgba(0, 0, 0, 0.3);
+$black-translucent--mid: rgba(0, 0, 0, 0.7);
+$black-translucent--dark: rgba(0, 0, 0, 0.8);
+
+$gray-10-translucent: rgba(43, 49, 58, 0.5);
+$gray-10-translucent--light: rgba(43, 49, 58, 0.3);
+$gray-10-translucent--dark: rgba(43, 49, 58, 0.8);
+
+$gray-8-translucent: rgba(101, 108, 117, 0.5);
+$gray-7-translucent: rgba(145, 160, 173, 0.3);
+
+
+//Font weight
+$regular: 400;
+$medium: 500;

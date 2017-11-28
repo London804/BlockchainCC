@@ -5,31 +5,50 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="style.css"></link>
+	<link rel="stylesheet" href="src/style.css"></link>
 
 </head>
 <body>
 
-	<div>
-		<h2>Available Currencies</h2>
-		<button class="convert" data-currency=" ">Default</button>
-		<button class="convert" data-currency="GBP">GBP</button>
-		<button class="convert" data-currency="EUR">EUR</button>
-		<button class="convert" data-currency="JPY">JPY</button>
-	</div>
+	<section class="currency">
+		<div class="currency-title">
+			<h2>Available Currencies</h2>
+		</div>
+		<div class="button-group">
+			<button 
+				class="button button--secondary is-active currency-convert" 
+				data-currency=" ">
+				Default
+			</button>
+			<button 
+				class="button button--secondary currency-convert" 
+				data-currency="GBP">
+				GBP
+			</button>
+			<button 
+				class="button button--secondary currency-convert" 
+				data-currency="EUR">
+				EUR
+			</button>
+			<button 
+				class="button button--secondary currency-convert" 
+				data-currency="JPY">
+				JPY
+			</button>
+		</div>
+	</section>
 
 	<div id="container">
-		<div class="loader"></div>
+		<div class="loader-container">
+			<div class="loader"></div>
+		</div>
 	</div>
-
 
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-
-
-	<script src="scripts.js"></script>
+	<script src="src/js/scripts.js"></script>
 </body>
 </html>

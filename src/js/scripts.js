@@ -8,7 +8,7 @@ $(function() {
 	            zoomType: 'x'
 	        },
 	        title: {
-	            text: 'Bitcoin Price'
+	            text: 'Bitcoin'
 	        },
 	        subtitle: {
 	            text: document.ontouchstart === undefined ?
@@ -16,7 +16,6 @@ $(function() {
 	        },
 	        xAxis: {
 	            type: 'datetime',
-	            // categories: formattedDate
 	        },
 	          yAxis: [{
 	            labels: {
@@ -99,12 +98,7 @@ $(function() {
 		 		return [element.timestamp*1000, element.price, element.volume24h];
 		 	})
 
-		 	// var volumeData = data.map(function(element) {
-		 	// 	return [element.volume24h];
-		 	// })
-
 		 	// console.log('cachedData', cachedData);
-		 	// console.log('volume24h', volumeData);
 
 		 	renderChart(mappedData);
 		
@@ -121,10 +115,11 @@ $(function() {
 
 	getDataAndShowChart();
 
-	$('.convert').click(function(evt){
+	$('.currency-convert').click(function(evt){
 		evt.preventDefault();
 		var dataCurrency = $(this).data('currency');
 		getPriceRatioAndReRenderChart(dataCurrency);
+		$(this).addClass('is-active').siblings().removeClass('is-active')
 	});
 
 	function getPriceRatioAndReRenderChart(currency) {
@@ -167,8 +162,6 @@ $(function() {
 			$(".loader").hide();  
 		});
 	}
-
-// window.myTestFunction()
 
 });
 
