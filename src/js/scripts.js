@@ -47,7 +47,7 @@ $(function() {
 
             tooltip: {
                 split: true,
-                pointFormat: "{point.y:.2f}",
+                pointFormat: "{series.name}: {point.y:.2f}",
             },
             legend: {
                 enabled: false
@@ -98,17 +98,15 @@ $(function() {
             var mappedData = data.map(function(element) {
                 return [element.timestamp*1000, element.price, element.volume24h];
             })
-
             renderChart(mappedData);
-        
         })
          .fail(function() {
-            console.log( "error" );
-            $("#container").append( "<h1>Chart Failed to load. Please refresh the page.</h1>" );
+            console.log("error");
+            $("#container").prepend("<h1>Chart Failed to load. Please refresh the page.</h1>");
           })
         .done(function() {
-            console.log( "complete" );
-            $(".loader").hide();  
+            console.log("complete");
+            $(".loader").hide();
         });
     }
 
@@ -133,7 +131,7 @@ $(function() {
                 } else {
                     var mappedData = data.map(function(element) {
                         var ratioInt = element.price * ratio
-                        return [element.timestamp * 1000, ratioInt]; //this gets the currency ratio
+                        return [element.timestamp * 1000, ratioInt]; // this gets the currency ratio
                     });
                 }
 
@@ -156,13 +154,14 @@ $(function() {
             });
         })
         .fail(function() {
-            console.log( "error" );
-            $("#container").append( "<h1>Chart Failed to load. Please refresh the page.</h1>" );
+            console.log("error");
+             $("#container").prepend("<h1>Chart Failed to load. Please refresh the page.</h1>");
           })
         .done(function() {
-            console.log( "complete" );
-            $(".loader").hide();  
+            console.log("complete");
+            $(".loader").hide();
         });
     }
+
 
 });

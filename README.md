@@ -17,16 +17,15 @@ For more details visit http://sass-lang.com/install.
 
 ### Built With
 
-Highcharts - Interactive charts https://www.highcharts.com/
-jQuery - Write less do more http://jquery.com/
-Blockchain API - https://blockchain.info/api
-Fixer API - http://fixer.io/
+Highcharts - Interactive charts https://www.highcharts.com/. 
+jQuery - Write less do more http://jquery.com/. 
+Blockchain API - https://blockchain.info/api. 
+Fixer API - http://fixer.io/. 
 
 
 #### Authors
 
-Alex Chaparro - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+Alex Chaparro.
 
 #### License
 
