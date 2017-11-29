@@ -8,7 +8,7 @@ $(function() {
                 zoomType: "x"
             },
             title: {
-                text: `Bitcoin in USD`,
+                text: `Bitcoin/USD Price`,
             },
             subtitle: {
                 text: document.ontouchstart === undefined ?
@@ -81,7 +81,7 @@ $(function() {
 
             series: [{
                 type: "area",
-                name: `Bitcoin in USD`,
+                name: `Bitcoin/USD Price`,
                 data: mappedData,
             }, {
                 type: "column",
@@ -137,11 +137,11 @@ $(function() {
 
                 chart.update({
                     title: {
-                        text: `Bitcoin in ${currency}`,
+                        text: `Bitcoin/${currency} Price`,
                     },
                     series: [{
                         type: "area",
-                        name: `Bitcoin in ${currency}`,
+                        name: `Bitcoin/${currency} Price`,
                         data: mappedData
                     },{
                         type: "column",
