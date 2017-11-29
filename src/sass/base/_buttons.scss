@@ -25,6 +25,12 @@
     .icon-arrow-left {
         margin-right: 0.125rem;
     }
+
+    span { //safari fix
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 }
 
 .button--primary,
