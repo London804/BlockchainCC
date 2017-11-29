@@ -128,7 +128,7 @@ select:-moz-focusring {
   height: 6rem;
   width: 6rem;
   border: 2px solid #d1d9dd;
-  border-left-color: #00c7b1;
+  border-left-color: #ff7500;
   border-radius: 100%;
   transform: translateZ(0);
   transition: opacity 218ms ease;
