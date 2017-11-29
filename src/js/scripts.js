@@ -27,7 +27,7 @@ $(function() {
                 },
                 height: "70%",
                 lineWidth: 2,
-                offset: 20,
+                offset: 30,
                 resize: {
                     enabled: true
                 }
@@ -35,14 +35,13 @@ $(function() {
                 labels: {
                     align: "right",
                     x: -3,
-                    format: '{value:.2f}'
                 },
                 title: {
                     text: "Volume"
                 },
                 top: "75%",
                 height: "25%",
-                offset: 20,
+                offset: 30,
                 lineWidth: 2
             }],
 
@@ -117,7 +116,7 @@ $(function() {
 
     $(".currency-convert").click(function(evt){
         evt.preventDefault();
-        var dataCurrency = $(this).data('currency');
+        var dataCurrency = $(this).data("currency");
         getPriceRatioAndReRenderChart(dataCurrency);
         $(this).addClass("is-active").siblings().removeClass("is-active")
     });
