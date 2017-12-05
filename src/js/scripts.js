@@ -159,7 +159,7 @@ $(function() {
     $(".currency-convert").click(function() {
         var dataCurrency = $(this).data("currency");
         getPriceRatioAndReRenderChart(dataCurrency);
-        $(this).addClass("is-active").siblings().removeClass("is-active")
+        $(this).addClass("is-active").siblings().removeClass("is-active");
     });
 
 });
