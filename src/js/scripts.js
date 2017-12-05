@@ -112,13 +112,6 @@ $(function() {
 
     getDataAndShowChart();
 
-    $(".currency-convert").click(function(evt){
-        evt.preventDefault();
-        var dataCurrency = $(this).data("currency");
-        getPriceRatioAndReRenderChart(dataCurrency);
-        $(this).addClass("is-active").siblings().removeClass("is-active")
-    });
-
     function getPriceRatioAndReRenderChart(currency) {
         $(".loader").show();
         // get the price ratio for the one you're interested in
@@ -163,5 +156,10 @@ $(function() {
         });
     }
 
+    $(".currency-convert").click(function() {
+        var dataCurrency = $(this).data("currency");
+        getPriceRatioAndReRenderChart(dataCurrency);
+        $(this).addClass("is-active").siblings().removeClass("is-active")
+    });
 
 });
