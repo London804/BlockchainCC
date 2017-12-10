@@ -18,6 +18,7 @@ $(function() {
                 type: "datetime",
             },
               yAxis: [{
+                min: 0,
                 labels: {
                     align: "right",
                     x: -3
