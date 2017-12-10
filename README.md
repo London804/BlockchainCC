@@ -1,6 +1,6 @@
 # Blockchain Code Challenge
 
-The application shows the current and historical bitcoin market price as of August 19th, 2017. The app allows you to see the data in USD, GBP, EUR, and JPY. Bitcoin price data is provided by Blockchain.com. Currency exchange rates are provided by Fixer.io.
+The application shows the current and historical bitcoin market price as of September 2010. The app allows you to see the data in USD, GBP, EUR, and JPY. Bitcoin price data is provided by Blockchain.com. Currency exchange rates are provided by Fixer.io.
 
 
 ## Getting Started

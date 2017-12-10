@@ -94,7 +94,7 @@ $(function() {
 
      function getDataAndShowChart() {
         $(".loader").show();
-         $.getJSON("https://api.blockchain.info/price/index-series?base=btc&quote=USD&start=1503145039&scale=7200", function (data) {
+         $.getJSON("https://api.blockchain.info/price/index-series?base=btc&quote=USD&start=1284514339&scale=7200", function (data) {
             var mappedData = data.map(function(element) {
                 return [element.timestamp*1000, element.price, element.volume24h];
             })
@@ -118,7 +118,7 @@ $(function() {
         $.getJSON(`https://api.fixer.io/latest?base=USD&symbols=USD,${currency}` , function(currencyRatioData) {
             var ratio = currencyRatioData.rates[currency];
 
-            $.getJSON("https://api.blockchain.info/price/index-series?base=btc&quote=USD&start=1503145039&scale=7200", function (data) {
+            $.getJSON("https://api.blockchain.info/price/index-series?base=btc&quote=USD&start=1284514339&scale=7200", function (data) {
                 if (ratio === undefined) {
                     getDataAndShowChart();
                 } else {
